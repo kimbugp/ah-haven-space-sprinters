@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kimbugp/ah-haven-space-sprinters.svg?branch=ch-Integrate-TravisCI-164694210)](https://travis-ci.org/kimbugp/ah-haven-space-sprinters)
+[![Build Status](https://travis-ci.org/mirest/ah-haven-space-sprinters.svg?branch=ch-Integrate-TravisCI-164694210)](https://travis-ci.org/mirest/ah-haven-space-sprinters)
 
 Authors Haven - A Social platform for the creative at heart.
 =======
