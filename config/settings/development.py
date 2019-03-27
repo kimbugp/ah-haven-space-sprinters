@@ -4,7 +4,7 @@ DEBUG = True
 
 ALLOWED_HOSTS += ['127.0.0.1', 'localhost', '0.0.0.0:5000']
 
-INSTALLED_APPS += ['debug_toolbar']
+INSTALLED_APPS += ('debug_toolbar',)
 
 EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
 

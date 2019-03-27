@@ -159,7 +159,7 @@ class ResetPasswordEmail(CreateAPIView):
         return Response(response, content_type='text/json')
 
 
-class ResetPasswordConfirm(CreateAPIView):
+class ConfirmResetPassword(CreateAPIView):
     """Password resetting with a provided uid and token"""
 
     serializer_class = PasswordResetSerializer

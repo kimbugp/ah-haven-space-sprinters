@@ -21,13 +21,7 @@ PASSWORD_HASHERS = (
 
 ALLOWED_HOSTS += ['127.0.0.1', 'localhost', '0.0.0.0:5000']
 
-INSTALLED_APPS += ['debug_toolbar', 'django_extensions']
-
-EMAIL_HOST = 'localhost'
-
-EMAIL_PORT = 1025
-
-EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
+INSTALLED_APPS += ('debug_toolbar', 'django_extensions',)
 
 MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
 
