@@ -17,12 +17,15 @@ class ArticleSerializer(serializers.Serializer):
     updated_at = serializers.CharField(read_only=True)
     favourited = serializers.CharField(read_only=True)
     author = UserProfileSerializer(read_only=True)
+    image = serializers.URLField(allow_blank=True, required=False)
 
     class Meta:
         model = Article
         # List all of the fields that could possibly be included in a request
         # or response, including fields specified explicitly above.
-        fields = ['title', 'description', 'body', 'slug', 'favourited', 'created_at', 'updated_at', 'author',]
+
+        fields = ['title', 'description', 'body', 'image','slug', 'favourited', 'created_at', 'updated_at', 'author',]
+
 
     def create(self, validated_data):
         author = self.context.get('author', None)

@@ -29,13 +29,15 @@ class ArticleView(ListCreateAPIView):
 
     permission_classes = (IsAuthenticatedOrReadOnly,)
     renderer_classes = (ArticleJSONRenderer, )
+    serializer_class = ArticleSerializer
+
 
     def post(self, request):
         serializer_context = {'author': request.user.profile}
         article = request.data
 
         # Create an article from the above data
-        serializer = ArticleSerializer(data=article, context=serializer_context)
+        serializer = self.serializer_class(data=article, context=serializer_context)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
@@ -44,7 +46,7 @@ class ArticleView(ListCreateAPIView):
     def get(self, request):
         queryset = Article.objects.all()
         # the many param informs the serializer that it will be serializing more than a single article.
-        serializer = ArticleSerializer(queryset, many=True)
+        serializer = self.serializer_class(queryset, many=True)
         return Response({"articles": serializer.data})
 
 class ArticleRetrieveUpdateDelete(RetrieveUpdateDestroyAPIView):
@@ -75,7 +77,7 @@ class ArticleRetrieveUpdateDelete(RetrieveUpdateDestroyAPIView):
         return Response(resp)
 
 
-    def update(self, request, slug):
+    def update(self, request, slug,*args,**kwargs):
 
         article = self.get_object(slug)
         requester = Profile.objects.get(user=request.user)

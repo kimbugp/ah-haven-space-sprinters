@@ -26,7 +26,7 @@ class Article(models.Model):
     body = models.TextField()
 
     # An image field that will hold the names of the images added to the object
-    image = models.ImageField(upload_to = 'staic/media/', default = 'static/media/None/no-img.jpg')
+    image = models.URLField(blank=True,max_length=200, default="url")
 
     # A timestamp representing when this object was created.
     created_at = models.DateTimeField(auto_now_add=True)
